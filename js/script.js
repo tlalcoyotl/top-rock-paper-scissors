@@ -3,7 +3,10 @@ let humanScore = 0;
 let computerScore = 0;
 let playerSelection = document.getElementById('player')
 let buttons = document.querySelectorAll('button');
+let gameStatus = document.querySelector('#gameStatus');
+let score = document.getElementById('score');
 playerSelection.addEventListener('click', playRound);
+gameStatus.innerText = 'Play Rock Paper Scissors!';
 
 function getComputerChoice() {
     let computerChoice = '';
@@ -26,37 +29,44 @@ function playRound(e) {
     }
     roundResult(playerChoice, computerChoice);
 }
-// Play a single round
+// Get round result
 function roundResult(playerChoice, computerChoice) {
     if (playerChoice === "rock" && computerChoice === "scissors" ||
         playerChoice === "paper" && computerChoice === "rock" ||
         playerChoice === "scissors" && computerChoice === "paper") {
             // If player wins increase humanScore
-            console.log(`You win this round! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`);
+            gameStatus.textContent = `You win this round! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
             humanScore++;
+            getScore();
         } else if (playerChoice === computerChoice) {
             // If there's a tie don't increase anything
-            console.log("That's a tie!")
+            gameStatus.textContent = "That's a tie!";
+            getScore();
         } else {
             // If player loses increase computerScore
-            console.log(`You lose this round! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} loses against ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`);
+            gameStatus.textContent = `You lose this round! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} loses against ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
             computerScore++;
+            getScore();
             };
+    if (humanScore === 5 || computerScore ===5) {
+        getWinner();
+    }
 }
 
 // Function to show score
 function getScore() {
-    console.log("Player: " + humanScore + '  Computer: ' + computerScore);
+    score.textContent = "Player: " + humanScore + '  Computer: ' + computerScore;
 }
 
 // Function to create a console.log that will show who is the winner
 function getWinner() {
-    if (humanScore === computerScore) {
-        console.log("This game is a tie!");
-    } else if (humanScore < computerScore) {
-        console.log("You lost the game!");
+    if (humanScore > computerScore) {
+        gameStatus.textContent = "You win this game!"
     } else {
-        console.log("You won the game!");
+        gameStatus.textContent = "You lose this game!"
     }
+    score.textContent = "Play Again?";
+    humanScore = 0;
+    computerScore = 0;
 }
 
