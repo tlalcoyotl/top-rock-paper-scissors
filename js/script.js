@@ -71,22 +71,22 @@ function getWinner() {
     }
 }
 
-// Play a game of 5 rounds
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        getChoices();
-        playRound(humanSelection, computerSelection);
-        getScore();
-    }
-    getWinner();
-    console.log("Play again by entering playAgain() in the console!")
-}
+// // Play a game of 5 rounds
+// function playGame() {
+//     for (let i = 0; i < 5; i++) {
+//         getChoices();
+//         playRound(humanSelection, computerSelection);
+//         getScore();
+//     }
+//     getWinner();
+//     console.log("Play again by entering playAgain() in the console!")
+// }
 
-playGame();
+// playGame();
 
-// Function to play again
-function playAgain() {
-    humanScore = 0;
-    computerScore = 0;
-    playGame();
-}
+// // Function to play again
+// function playAgain() {
+//     humanScore = 0;
+//     computerScore = 0;
+//     playGame();
+// }
