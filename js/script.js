@@ -23,12 +23,11 @@ function getComputerChoice() {
 function playRound(e) {
     let playerChoice;
     let computerChoice = getComputerChoice();
-    console.log(computerChoice);
     if (e.target.classList.contains('btn')) {
         playerChoice = e.target.parentNode.id;
+        roundResult(playerChoice, computerChoice);
+    };
     }
-    roundResult(playerChoice, computerChoice);
-}
 // Get round result
 function roundResult(playerChoice, computerChoice) {
     if (playerChoice === "rock" && computerChoice === "scissors" ||
@@ -69,4 +68,3 @@ function getWinner() {
     humanScore = 0;
     computerScore = 0;
 }
-

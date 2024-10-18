@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Noto Sans", Arial, Helvetica, sans-serif;
+    background: #30427b;
+}
+
+div {
+    text-align: center;
+}
+
+div#gameStatus {
+    font-size: 1.5em;
+    font-weight: 900;
+}
+
+div#score {
+    color: #2f2f2f
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1em;
+}
+
+button {
+    border: 0;
+    border-radius: 0.5em;
+    background: teal;
+    color: white;
+    padding: 0.5em 1em;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+button:hover {
+    background: #2626bb;
+}
+
+button:active {
+    background: #bd4e4e;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 50px;
+    background: white;
+    border-radius: 2em;
+    min-width: 600px;
+}
